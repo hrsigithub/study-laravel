@@ -65,7 +65,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-
+----------------
+2022/12/24 Study
 ## 参考サイト
 https://inertiajs.com/
 https://blog.capilano-fw.com/?p=10845
@@ -85,7 +86,8 @@ php artisan serve
 起動後
 npm run dev
 実施する。
-
+----------------------
+2022/12/24 Study
 ## 参考サイト
 https://blog.capilano-fw.com/?p=10860
 
@@ -98,3 +100,7 @@ PostRequest
 の
 authorize()で
 trueを返却する。
+----------------------
+2022/12/24 Study
+## 参考サイト
+https://blog.capilano-fw.com/?p=10887

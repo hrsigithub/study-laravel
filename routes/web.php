@@ -48,4 +48,6 @@ Route::prefix('post')->controller(PostController::class)->group(function () {
     Route::delete('/{post}', 'destroy')->name('post.destroy');
 });
 
+Route::get('preview_image_input', fn() => Inertia::render('PreviewImageInput/Index'));
+
 require __DIR__ . '/auth.php';
