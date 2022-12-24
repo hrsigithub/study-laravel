@@ -1,12 +1,12 @@
-import React from "react";
-import PreviewImageInput from "@/Components/PreviewImageInput";
+import React from 'react'
+import PreviewImageInput from '@/Components/PreviewImageInput'
 
 export default function Index() {
     const handleImageChange = (e) => {
         // 画像に変化があったら実行される
 
-        console.log(e);
-    };
+        console.log(e)
+    }
 
     return (
         <div className="p-4">
@@ -15,5 +15,5 @@ export default function Index() {
             </h1>
             <PreviewImageInput onImageChange={(e) => handleImageChange(e)} />
         </div>
-    );
+    )
 }
