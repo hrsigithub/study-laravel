@@ -65,8 +65,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## 課題
 
+## 参考サイト
+https://inertiajs.com/
+https://blog.capilano-fw.com/?p=10845
+
+### 課題
 # Viteに繋がらない
 npm run dev
 で
@@ -75,3 +79,22 @@ APP_URL: http://127.0.0.1:8000
 
 php artisan serve
 だと動作する。
+
+解決？
+php artisan serve
+起動後
+npm run dev
+実施する。
+
+## 参考サイト
+https://blog.capilano-fw.com/?p=10860
+
+### 課題
+POSTすると、403になる。
+
+### 解決方法
+
+PostRequest
+の
+authorize()で
+trueを返却する。

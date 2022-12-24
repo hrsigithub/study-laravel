@@ -5,6 +5,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +37,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::prefix('post')->controller(PostController::class)->group(function () {
+
+    Route::get('/', 'index')->name('post.index');
+    Route::get('/create', 'create')->name('post.create');
+    Route::post('/', 'store')->name('post.store');
+    Route::get('/{post}', 'show')->name('post.show');
+    Route::get('/{post}/edit', 'edit')->name('post.edit');
+    Route::put('/{post}', 'update')->name('post.update');
+    Route::delete('/{post}', 'destroy')->name('post.destroy');
+});
+
+require __DIR__ . '/auth.php';
