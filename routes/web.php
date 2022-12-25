@@ -8,6 +8,9 @@ use Inertia\Inertia;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TwoStepsValidationController;
 
+use App\Http\Controllers\PrecognitionFormController;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,7 +42,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('post')->controller(PostController::class)->group(function () {
-
     Route::get('/', 'index')->name('post.index');
     Route::get('/create', 'create')->name('post.create');
     Route::post('/', 'store')->name('post.store');
@@ -49,16 +51,29 @@ Route::prefix('post')->controller(PostController::class)->group(function () {
     Route::delete('/{post}', 'destroy')->name('post.destroy');
 });
 
-Route::get('preview_image_input', fn() => Inertia::render('PreviewImageInput/Index'));
+Route::get('preview_image_input', fn () => Inertia::render('PreviewImageInput/Index'));
 
 
-Route::prefix('two_steps_validation')->controller(TwoStepsValidationController::class)->group(function(){
-
+Route::prefix('two_steps_validation')->controller(TwoStepsValidationController::class)->group(function () {
     Route::get('/create', 'create')->name('two_steps_validation.create');
     Route::post('/pre', 'preStore')->name('two_steps_validation.pre_store');
     Route::post('/', 'store')->name('two_steps_validation.store');
 });
 
-Route::get('software_keyboard', fn() => Inertia::render('SoftwareKeyboard/Index'));
+Route::get('software_keyboard', fn () => Inertia::render('SoftwareKeyboard/Index'));
+
+
+
+Route::prefix('precognition_form')->controller(PrecognitionFormController::class)->group(function () {
+
+    Route::get('/create', 'create')
+        ->name('precognition_form.create');
+
+
+    Route::post('/', 'store')
+        ->middleware([HandlePrecognitiveRequests::class])
+        ->name('precognition_form.store');
+});
+
 
 require __DIR__ . '/auth.php';
