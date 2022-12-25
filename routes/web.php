@@ -59,5 +59,6 @@ Route::prefix('two_steps_validation')->controller(TwoStepsValidationController::
     Route::post('/', 'store')->name('two_steps_validation.store');
 });
 
+Route::get('software_keyboard', fn() => Inertia::render('SoftwareKeyboard/Index'));
 
 require __DIR__ . '/auth.php';
