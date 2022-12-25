@@ -30,7 +30,6 @@ class PostController extends Controller
 
     public function store(PostRequest $request)
     {
-        Log::info("info ログ!");
 
         $post = new Post();
         $post->title = $request->title;
