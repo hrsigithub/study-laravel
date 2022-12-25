@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TwoStepsValidationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +50,14 @@ Route::prefix('post')->controller(PostController::class)->group(function () {
 });
 
 Route::get('preview_image_input', fn() => Inertia::render('PreviewImageInput/Index'));
+
+
+Route::prefix('two_steps_validation')->controller(TwoStepsValidationController::class)->group(function(){
+
+    Route::get('/create', 'create')->name('two_steps_validation.create');
+    Route::post('/pre', 'preStore')->name('two_steps_validation.pre_store');
+    Route::post('/', 'store')->name('two_steps_validation.store');
+});
+
 
 require __DIR__ . '/auth.php';

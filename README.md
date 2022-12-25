@@ -104,3 +104,8 @@ trueを返却する。
 2022/12/24 Study
 ## 参考サイト
 https://blog.capilano-fw.com/?p=10887
+
+----------------
+2022/12/25 Study
+## 参考サイト
+https://blog.capilano-fw.com/?p=10899
